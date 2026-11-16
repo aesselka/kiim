@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0b;
+  --color-surface: #141416;
+  --color-glass: rgb(255 255 255 / 0.04);
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-text: #f3efea;
+  --color-muted: #8c8781;
+  --color-accent: #ff6a2b;
+  --color-accent-2: #ffb48a;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgb(255 106 43 / 0.35);
+  color: var(--color-text);
+}
+
+@layer components {
+  .glass {
+    background: var(--color-glass);
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .label {
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .display {
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .serif {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 75%);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Studio stage sizing (desktop): stage + a column of three 3:4 panels fill the center height */
+@media (min-width: 1024px) {
+  .stage-box {
+    width: min(75cqh, 100cqw - 25cqh - 32px);
+  }
+  .panels-col {
+    width: calc((100cqh - 24px) / 4);
+  }
+}
+
+/* Custom cursor */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 9999px;
+  background: var(--color-text);
+  border: 1px solid transparent;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    width 0.3s var(--ease-out-soft),
+    height 0.3s var(--ease-out-soft),
+    margin 0.3s var(--ease-out-soft),
+    background-color 0.3s,
+    border-color 0.3s,
+    opacity 0.3s;
+  will-change: transform;
+}
+
+.cursor-dot.is-visible {
+  opacity: 1;
+}
+
+.cursor-dot.is-hover {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  background: rgb(243 239 234 / 0.06);
+  border-color: rgb(243 239 234 / 0.55);
+}
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 360px;
+  height: 360px;
+  margin: -180px 0 0 -180px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgb(255 106 43 / 0.35),
+    rgb(255 180 138 / 0.12) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s;
+  will-change: transform;
+}
+
+.cursor-glow.is-visible {
+  opacity: 1;
+}
+
+/* Motion */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: -2%;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: scan 2.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    rgb(255 255 255 / 0.05) 45%,
+    rgb(255 180 138 / 0.07) 50%,
+    rgb(255 255 255 / 0.05) 55%,
+    transparent 80%
+  );
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-breathe,
+  .animate-scan,
+  .shimmer::after {
+    animation: none;
+  }
+}
