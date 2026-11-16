@@ -38,14 +38,15 @@ three looks — and shows them **on her**, in her own avatar studio.
 
 ## How it works
 
-```mermaid
-flowchart LR
-    A["📸 5–20 selfies"] -->|trained once| B["Soul ID<br/><sub>face & proportions</sub>"]
-    C["🍷 Occasion<br/><sub>Date · Wedding · Interview<br/>Party · Weekend · Your own</sub>"] --> D["Stylist<br/><sub>3 moods: Classic · Bold · Effortless</sub>"]
-    D -->|3 prompts| E["Higgsfield Soul V2"]
-    B --> E
-    E --> F["✦ Three looks, on you"]
-```
+<p align="center">
+  <b>📸 Selfies</b> → <b>Soul ID</b>
+  &nbsp;&nbsp;+&nbsp;&nbsp;
+  <b>🍷 Occasion</b> → <b>Stylist</b> <sub>(Classic · Bold · Effortless)</sub>
+  &nbsp;&nbsp;→&nbsp;&nbsp;
+  <b>Higgsfield Soul V2</b>
+  &nbsp;&nbsp;→&nbsp;&nbsp;
+  <b>✦ Three looks, on you</b>
+</p>
 
 1. **Your face.** A Soul ID is trained once on a handful of selfies, so every render keeps the same face and proportions.
 2. **Your occasion.** Pick a preset or describe it in your own words — colours, place, shoes, light.
