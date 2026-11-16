@@ -10,23 +10,6 @@ Tell Kiim where you're going — and see yourself in three looks.
 
 </div>
 
-<br />
-
-<table>
-  <tr>
-    <td width="33%"><img src="public/lookbook/paris-bold.webp" alt="The Statement — a date look rendered with Soul ID" /></td>
-    <td width="33%"><img src="public/lookbook/como.webp" alt="Lake Como at sunset — a party look rendered with Soul ID" /></td>
-    <td width="33%"><img src="public/lookbook/paris-effortless.webp" alt="The Easy One — a date look rendered with Soul ID" /></td>
-  </tr>
-  <tr>
-    <td align="center"><sub>LOOK 02 · BOLD</sub><br /><i>The Statement</i></td>
-    <td align="center"><sub>YOUR OWN · PARTY</sub><br /><i>Lake Como at Sunset</i></td>
-    <td align="center"><sub>LOOK 03 · EFFORTLESS</sub><br /><i>The Easy One</i></td>
-  </tr>
-</table>
-
-<p align="center"><sub>Same face, three moods — every photo is generated, none of them was shot.</sub></p>
-
 ---
 
 ## The idea
