@@ -9,9 +9,9 @@ export default function Footer() {
           <Logo />
           <span className="text-[13px] text-muted">from Kazakh «киім» — clothing</span>
         </div>
-        <p className="text-[13px] text-muted">
+        {/* <p className="text-[13px] text-muted">
           Made by <span className="text-text">{AUTHORS.join(" & ")}</span> for Higgsfield Soul Camp
-        </p>
+        </p> */}
       </div>
     </footer>
   );
