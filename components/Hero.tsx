@@ -5,7 +5,6 @@ import { LinkButton } from "./Button";
 import { ArrowIcon } from "./icons";
 import GlassCard from "./GlassCard";
 import Photo from "./Photo";
-import { HERO_IMAGE } from "@/lib/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -58,8 +57,11 @@ export default function Hero() {
             aria-hidden
           />
           <div className="relative aspect-[3/4] overflow-hidden rounded-[28px] border border-line bg-surface">
-            <Photo src={HERO_IMAGE} alt="Kiim look rendered on the author with Soul ID" sizes="(min-width: 1024px) 460px, 90vw" priority className="object-top" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <Photo alt="" sizes="460px" />
+            <div className="pointer-events-none absolute inset-3 rounded-[20px] border border-dashed border-white/10" aria-hidden />
+            <div className="animate-scan pointer-events-none absolute inset-x-0 h-24 -translate-y-full bg-gradient-to-b from-transparent to-accent/15" aria-hidden>
+              <div className="absolute inset-x-0 bottom-0 h-px bg-accent/80 shadow-[0_0_18px_2px_rgb(255_106_43/0.6)]" />
+            </div>
           </div>
 
           <GlassCard className="absolute -left-2 top-[14%] px-5 py-4 sm:-left-12">
